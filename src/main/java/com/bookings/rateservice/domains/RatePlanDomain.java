@@ -1,15 +1,17 @@
-package com.bookings.rateservice.models;
+package com.bookings.rateservice.domains;
+
+import com.bookings.rateservice.models.RatePlan;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.Map;
 
-public class RatePlan {
+@Document(value = "ratePlan")
+public class RatePlanDomain {
     private String id;
     private String name;
-
     private Date startDate;
     private Date endDate;
-
     private Map<String, Double> rateByRoomTypeId;
 
     public String getId() {
@@ -50,5 +52,16 @@ public class RatePlan {
 
     public void setRateByRoomTypeId(Map<String, Double> rateByRoomTypeId) {
         this.rateByRoomTypeId = rateByRoomTypeId;
+    }
+
+    public RatePlan toModel() {
+        RatePlan ratePlan = new RatePlan();
+        ratePlan.setId(id);
+        ratePlan.setRateByRoomTypeId(rateByRoomTypeId);
+        ratePlan.setName(name);
+        ratePlan.setEndDate(endDate);
+        ratePlan.setStartDate(startDate);
+
+        return ratePlan;
     }
 }

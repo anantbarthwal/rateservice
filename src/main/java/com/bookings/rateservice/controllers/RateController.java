@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class RateController {
     @Autowired
     private RateHandler rateHandler;
-    @PostMapping("/reservation")
+    @PostMapping("/reservation/create")
     public Double calculateRateForReservation(@RequestBody RateCreateRequest rateCreateRequest) {
         return rateHandler.calculateRateForReservation(rateCreateRequest);
     }
