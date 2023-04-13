@@ -57,7 +57,9 @@ public class RatePlanDomain {
     public RatePlan toModel() {
         RatePlan ratePlan = new RatePlan();
         ratePlan.setId(id);
-        ratePlan.setRateByRoomTypeId(rateByRoomTypeId);
+        if(rateByRoomTypeId != null) {
+            ratePlan.setRateByRoomTypeId(rateByRoomTypeId);
+        }
         ratePlan.setName(name);
         ratePlan.setEndDate(endDate);
         ratePlan.setStartDate(startDate);

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class RateHandler {
 
     public Double calculateRateForReservation(RateCreateRequest rateCreateRequest) {
-        Double totalRate = 3.0 * rateCreateRequest.getNumberOfNights();
+        Double totalRate = (double) (300 * rateCreateRequest.getNumberOfNights());
         return totalRate;
     }
 }

@@ -37,6 +37,7 @@ public class RatePlanHandler {
         RatePlanDomain ratePlanDomain = new RatePlanDomain();
         ratePlanDomain.setStartDate(ratePlan.getStartDate());
         ratePlanDomain.setEndDate(ratePlan.getEndDate());
+        ratePlanDomain.setName(ratePlan.getName());
         return ratePlanRepository.save(ratePlanDomain).toModel();
     }
 
